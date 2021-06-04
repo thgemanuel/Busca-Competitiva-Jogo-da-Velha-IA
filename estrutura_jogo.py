@@ -19,6 +19,7 @@ def labelJogador(jogador):
         return "x"
     else:
         return "o"
+        
 #imprime tabuleiro
 def imprimirTabuleiro(tabuleiro):
     for i in range(3):
@@ -39,7 +40,8 @@ def leEntrada(entrada):
         indice = int(input(entrada))
         if(verificaJogadaValida(indice)):
             return indice
-        leEntrada(entrada)
+        else: 
+            leEntrada(entrada)
     except:
         return leEntrada(entrada)
             
@@ -48,7 +50,7 @@ def acoes(tabuleiro):
     for i in range(3):
         for j in range(3):
             if(tabuleiro[i][j] == vazia):
-                print("Posicao: ".join(tabuleiro[i][j].join(" disponível!")))
+                print("Posicao disponível: ",i," ",j)
 
 #Verifica se posição do tabuleiro esta ocupada
 def verificaPosicaoVazia(tabuleiro, i, j):
@@ -65,18 +67,11 @@ def resultado(tabuleiro, i, j, njogador):
 
 #verifica se ainda possui posicao vazia no tabuleiro
 def aindaPossuiPosicaoVazia(tabuleiro):
-    qtdPosicoesOcupadas: 0
     for i in range(3):
         for j in range(3):
-            if(tabuleiro[i][j] == vazia):
-                qtdPosicoesOcupadas += 1
-    if(qtdPosicoesOcupadas != 9):
-        return True
-    else:
-        print("xxxxxxxxxxxxxxxxxx")
-        print("O jogo empatou!")
-        print("xxxxxxxxxxxxxxxxxx")
-        return False
+            if(tabuleiro[i][j] == vazia):          
+                return True
+    return False
 
 #verifica quem ganhou, se deu empate ou o ainda possui posicão vazia
 def quemGanhou(tabuleiro):
@@ -93,7 +88,7 @@ def quemGanhou(tabuleiro):
 
 #Retorna Verdadeiro se o jogo acabou, Falso caso contrário
 def final(tabuleiro):
-    if(aindaPossuiPosicaoVazia(tabuleiro) and (quemGanhou(tabuleiro) != "x" or quemGanhou(tabuleiro) != "o")):
+    if(not aindaPossuiPosicaoVazia(tabuleiro) and (quemGanhou(tabuleiro) != "x" or quemGanhou(tabuleiro) != "o")):
         return False
     return True
 
