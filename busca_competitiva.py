@@ -24,8 +24,6 @@ def iniciaJogo(jogador,tabuleiro):
 
     return quemGanhou(tabuleiro)
 
-resultadofinal = iniciaJogo(jogador,tabuleiro)
-
 #Retorna 1 se X ganhou, -1 se 0 ganhou, 0 caso contrário.
 def custo(resultadofinal):
     if(resultadofinal == "x"):
@@ -37,11 +35,12 @@ def custo(resultadofinal):
 #Retorna o ganhador, se houver
 def ganhador(numerojogador):
     print("xxxxxxxxxxxxxxxxxx")
-    imprimirTabuleiro(tabuleiro)
     if(numerojogador == 1):
         print("O ganhador é o jogador: 1")
-    else:
+    elif(numerojogador == -1):
         print("O ganhador é o jogador: 2")
+    else:
+        print("O jogo empatou!")
     print("xxxxxxxxxxxxxxxxxx")
 
-ganhador(custo(resultadofinal))
+ganhador(custo(iniciaJogo(jogador,tabuleiro)))
