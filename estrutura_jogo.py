@@ -24,12 +24,12 @@ def labelJogador(jogador):
 def imprimirTabuleiro(tabuleiro):
     for i in range(3):
         print("|".join(tabuleiro[i]))
-        if(i<2):
+        if i<2 :
             print("______")
 
 #Verifica se posição indicada esta dentro do tabuleiro
 def verificaJogadaValida(indice):
-    if(indice < 0 or indice >2):
+    if indice < 0 or indice >2 :
         print("Indice invalido! Informe um indice entre 0 e 2.")
         return False
     return True
@@ -38,7 +38,7 @@ def verificaJogadaValida(indice):
 def leEntrada(entrada):
     try:
         indice = int(input(entrada))
-        if(verificaJogadaValida(indice)):
+        if verificaJogadaValida(indice):
             return indice
         else: 
             leEntrada(entrada)
@@ -47,14 +47,17 @@ def leEntrada(entrada):
             
 #Retorna todas as jogadas disponíveis
 def acoes(tabuleiro):
+    posicoes = []
     for i in range(3):
         for j in range(3):
-            if(tabuleiro[i][j] == vazia):
-                print("Posicao disponível: ",i," ",j)
+            if tabuleiro[i][j] == vazia :
+                #print("Posicao disponível: ",i," ",j)
+                posicoes.append([i, j])
+    return posicoes
 
 #Verifica se posição do tabuleiro esta ocupada
 def verificaPosicaoVazia(tabuleiro, i, j):
-    if(tabuleiro[i][j] != vazia):
+    if tabuleiro[i][j] != vazia :
         print("Indice invalido! Posição ja ocupada.")
         acoes(tabuleiro)
         return False
@@ -69,26 +72,36 @@ def resultado(tabuleiro, i, j, njogador):
 def aindaPossuiPosicaoVazia(tabuleiro):
     for i in range(3):
         for j in range(3):
-            if(tabuleiro[i][j] == vazia):          
+            if tabuleiro[i][j] == vazia:          
                 return True
     return False
 
 #verifica quem ganhou, se deu empate ou o ainda possui posicão vazia
 def quemGanhou(tabuleiro):
-    if(tabuleiro[0][0] != vazia and tabuleiro[0][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][2]):
+    #diagonal principal
+    if tabuleiro[0][0] != vazia and tabuleiro[0][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][2]:
         return tabuleiro[0][0]
-    if(tabuleiro[0][2] != vazia and tabuleiro[0][2] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][0]):
+    #diagonal sec
+    if tabuleiro[0][2] != vazia and tabuleiro[0][2] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][0]:
         return tabuleiro[0][2]
+    #ganha linhna
     for i in range(3):
-        if(tabuleiro[i][0] != vazia and tabuleiro[i][0] == tabuleiro[i][1] and tabuleiro[i][1] == tabuleiro[i][2]):
+        if tabuleiro[i][0] != vazia and tabuleiro[i][0] == tabuleiro[i][1] and tabuleiro[i][1] == tabuleiro[i][2]:
             return tabuleiro[i][0]
+    #ganha coluna
     for i in range(3):
-        if(tabuleiro[0][i] != vazia and tabuleiro[0][i] == tabuleiro[1][i] and tabuleiro[1][i] == tabuleiro[2][i]):
+        if tabuleiro[0][i] != vazia and tabuleiro[0][i] == tabuleiro[1][i] and tabuleiro[1][i] == tabuleiro[2][i]:
             return tabuleiro[0][i]
+    
+    #empate
+    if aindaPossuiPosicaoVazia(tabuleiro):
+        return False
+
+    return "empate"
 
 #Retorna Verdadeiro se o jogo acabou, Falso caso contrário
 def final(tabuleiro):
-    if(not aindaPossuiPosicaoVazia(tabuleiro) and (quemGanhou(tabuleiro) != "x" or quemGanhou(tabuleiro) != "o")):
-        return False
+    if quemGanhou(tabuleiro):
+        return False 
     return True
 
