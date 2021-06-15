@@ -43,6 +43,7 @@ def leEntrada(entrada):
         else: 
             leEntrada(entrada)
     except:
+        print("Indice invalido! Informe um indice entre 0 e 2.")
         return leEntrada(entrada)
             
 #Retorna todas as jogadas disponíveis
@@ -59,7 +60,7 @@ def acoes(tabuleiro):
 def verificaPosicaoVazia(tabuleiro, i, j):
     if tabuleiro[i][j] != vazia :
         print("Indice invalido! Posição ja ocupada.")
-        acoes(tabuleiro)
+        #acoes(tabuleiro)
         return False
     return True
 
@@ -77,7 +78,7 @@ def aindaPossuiPosicaoVazia(tabuleiro):
     return False
 
 #verifica quem ganhou, se deu empate ou o ainda possui posicão vazia
-def quemGanhou(tabuleiro):
+def ganhador(tabuleiro):
     #diagonal principal
     if tabuleiro[0][0] != vazia and tabuleiro[0][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][2]:
         return tabuleiro[0][0]
@@ -101,7 +102,7 @@ def quemGanhou(tabuleiro):
 
 #Retorna Verdadeiro se o jogo acabou, Falso caso contrário
 def final(tabuleiro):
-    if quemGanhou(tabuleiro):
+    if ganhador(tabuleiro):
         return False 
     return True
 

@@ -1,6 +1,6 @@
 #  Exercício 2: Busca Competitiva  (Jogo da Velha) 
 # Aluno: Thiago Emanuel
-from estrutura_jogo import acoes, labelJogador, quemGanhou, vazia
+from estrutura_jogo import acoes, labelJogador, ganhador, vazia
 
 #Retorna 1 se X ganhou, -1 se 0 ganhou, 0 caso contrário.
 def custo(resultadofinal):
@@ -30,16 +30,14 @@ def movimentoIA(tabuleiro, jogador):
             if valor < melhor_valor:
                 melhor_valor = valor
                 melhormovimento = posicao
-        #print("aquixxxxxxxxx--- movimentoia ----xxxxxxxxxx")
     
     return melhormovimento[0], melhormovimento[1]
 
 
 #Retorna a jogada ótima para o jogador atual
 def minimax(tabuleiro, jogador):
-    jganhador = quemGanhou(tabuleiro)
+    jganhador = ganhador(tabuleiro)
     if jganhador:
-        #print("dentro terceiro if")
         return custo(jganhador)
     
     jogador = (jogador + 1)%2
