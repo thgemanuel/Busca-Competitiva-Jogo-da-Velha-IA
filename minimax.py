@@ -60,4 +60,3 @@ def minimax(tabuleiro, jogador):
         #print("aquixxxxxxxxx--- minimax ----xxxxxxxxxx")
 
     return melhor_valor
-

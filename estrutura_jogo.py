@@ -42,7 +42,7 @@ def leEntrada(entrada):
             return indice
         else: 
             leEntrada(entrada)
-    except:
+    except Exception:
         print("Indice invalido! Informe um indice entre 0 e 2.")
         return leEntrada(entrada)
             
