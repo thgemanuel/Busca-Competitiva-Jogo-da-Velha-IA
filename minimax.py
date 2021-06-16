@@ -55,7 +55,6 @@ def minimax(tabuleiro, jogador):
             melhor_valor = maxValor(valor, melhor_valor)
         elif jogador == 1:
             melhor_valor = minValor(valor, melhor_valor)
-        #print("aquixxxxxxxxx--- minimax ----xxxxxxxxxx")
 
     return melhor_valor
 
