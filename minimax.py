@@ -52,11 +52,21 @@ def minimax(tabuleiro, jogador):
         if melhor_valor is None:
             melhor_valor = valor
         elif jogador == 0 :
-            if valor > melhor_valor:
-                melhor_valor = valor
+            melhor_valor = maxValor(valor, melhor_valor)
         elif jogador == 1:
-            if valor < melhor_valor:
-                melhor_valor = valor
+            melhor_valor = minValor(valor, melhor_valor)
         #print("aquixxxxxxxxx--- minimax ----xxxxxxxxxx")
 
     return melhor_valor
+
+def maxValor(valor, melhor_valor):
+    if valor > melhor_valor:
+        return valor
+    else:
+        return melhor_valor
+
+def minValor(valor, melhor_valor):
+    if valor < melhor_valor:
+        return valor
+    else:
+        return melhor_valor

@@ -10,7 +10,6 @@ jganhador = ganhador(tabuleiro)
 
 #funcao iniciar jogo
 def iniciaJogo(jogador,tabuleiro):
-    
     try:
         while final(tabuleiro):
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -23,9 +22,10 @@ def iniciaJogo(jogador,tabuleiro):
                 #i = leEntrada("Informe o valor da linha: ")
                 #j = leEntrada("Informe o valor da coluna: ")
             else:
-                print("----= Sua Vez =----")
-                i = leEntrada("Informe o valor da linha: ")
-                j = leEntrada("Informe o valor da coluna: ")
+                i,j = movimentoIA(tabuleiro, jogador)
+                #print("----= Sua Vez =----")
+                #i = leEntrada("Informe o valor da linha: ")
+                #j = leEntrada("Informe o valor da coluna: ")
             if verificaPosicaoVazia(tabuleiro,i,j):
                 resultado(tabuleiro,i,j,jogador)
                 
@@ -37,6 +37,8 @@ def iniciaJogo(jogador,tabuleiro):
 
 #Imprime o resultado final
 def resultadoFinal(numerojogador):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    imprimirTabuleiro(tabuleiro)
     print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
     if numerojogador == 1:
         print("O ganhador é o jogador: 1")
