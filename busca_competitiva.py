@@ -22,10 +22,10 @@ def iniciaJogo(jogador,tabuleiro):
                 #i = leEntrada("Informe o valor da linha: ")
                 #j = leEntrada("Informe o valor da coluna: ")
             else:
-                i,j = movimentoIA(tabuleiro, jogador)
-                #print("----= Sua Vez =----")
-                #i = leEntrada("Informe o valor da linha: ")
-                #j = leEntrada("Informe o valor da coluna: ")
+                #i,j = movimentoIA(tabuleiro, jogador)
+                print("----= Sua Vez =----")
+                i = leEntrada("Informe o valor da linha: ")
+                j = leEntrada("Informe o valor da coluna: ")
             if verificaPosicaoVazia(tabuleiro,i,j):
                 resultado(tabuleiro,i,j,jogador)
                 

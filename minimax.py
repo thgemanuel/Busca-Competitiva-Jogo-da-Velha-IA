@@ -59,12 +59,14 @@ def minimax(tabuleiro, jogador):
 
     return melhor_valor
 
+#retorna o maximo
 def maxValor(valor, melhor_valor):
     if valor > melhor_valor:
         return valor
     else:
         return melhor_valor
 
+#retorna o minimo
 def minValor(valor, melhor_valor):
     if valor < melhor_valor:
         return valor
