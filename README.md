@@ -1,6 +1,6 @@
 # Busca Competitiva Jogo da Velha
 
-Trabalho proposto pela professora Luciana Balieiro Cosme e feito pelo aluno Thiago Emanuel Silva Antunes Lopes, estudante do curso de Bacharelado em Ciência da Computação do IFNMG Campus Montes Claros.
+Trabalho proposto pela professora Luciana Balieiro Cosme, na disciplina de Inteligência Artificial, desenvolvido pelo aluno Thiago Emanuel Silva Antunes Lopes, estudante do curso de Bacharelado em Ciência da Computação do IFNMG Campus Montes Claros.
 
 ## 🚀 Começando
 
